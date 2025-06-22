@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Svarga Dimsum</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titan+One&family=Baloo+2:wght@700&family=Cabin:wght@500&family=Nunito:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lato:wght@400;700&family=Playfair+Display:wght@600;700&family=Quicksand:wght@500;600&family=Urbanist:wght@500&display=swap" rel="stylesheet">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <style>
+    
+  </style>
+</head>
+<body>
+<!-- (body content remains unchanged) -->
+<div class="preloader">
+  <audio id="intro-audio" autoplay>
+    <source src="sound/3dsound.mp3" type="audio/mpeg">
+  </audio>
+  <div class="logo-glow"><i class="fas fa-bowl-rice"></i></div>
+  <div class="streak"></div>
+  <div class="preloader-text">SVARGA DIMSUM</div>
+</div>
+
+ <header>
+  <div class="logo">SVARGA</div> <!-- Harus di luar nav -->
+
+  <div class="toggle" onclick="document.querySelector('nav').classList.toggle('show')">
+  <span></span><span></span><span></span>
+</div>
+
+
+  <nav>
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#Tentang">Tentang Kami</a></li>
+      <li><a href="#Projects">Menu</a></li>
+      <li><a href="#Testi">Testimoni</a></li>
+      <li><a href="#Contak">Contak</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <section class="hero" id="home">
+    <div class="shape-right-bg"></div>
+    <div class="shape-left-thumb"></div>
+
+    <div class="hero-content">
+      <h1>Dimsum Favoritmu</h1>
+      <p>Rasakan kelezatan dimsum pilihan dengan bahan terbaik dan rasa yang otentik. Setiap gigitan adalah cerita kenikmatan yang tak terlupakan.</p>
+      <div class="product-label" id="product-name">Dimsum Ori</div>
+      <button class="btn"  onclick="document.getElementById('menu-dimsum').scrollIntoView({ behavior: 'smooth' });">
+        Yuk, Cicipin Sekarang!</button>
+      <div class="preview-thumbs">
+        <img src="img/dimsum_ori.png" alt="Dimsum 1" onclick="manualChangeImage(this, 0)" class="active">
+        <img src="img/Dumpling.png" alt="Dimsum 2" onclick="manualChangeImage(this, 1)">
+        <img src="img/dimsum_mentai.png" alt="Dimsum 3" onclick="manualChangeImage(this, 2)">
+      </div>
+    </div>
+
+    <div class="hero-image-container">
+      
+      <div class="image-loader" id="imageLoader"></div>
+      <img id="main-image" src="img/dimsum_ori.png" alt="Main Dimsum">
+    </div>
+    <button class="btn-rspnsv"  onclick="document.getElementById('menu-dimsum').scrollIntoView({ behavior: 'smooth' });">
+      Yuk, Cicipin Sekarang!
+    </button>
+  </section>
+
+      <!-- About -->
+    <section class="about-section" id="Tentang">
+    <div class="container-about">
+      <div class="about-images scroll-reveal reveal-left">
+        <div class="photo-stack">
+          <div class="floating-badge">✨ Premium</div>
+          <img src="img/svarga.jpg" alt="Svarga Dimsum Premium">
+        </div>
+      </div>
+
+      <div class="about-text scroll-reveal reveal-right">
+        <h4>Tentang Kami</h4>
+        <h1>Kami Bukan Sekadar Jual Dimsum</h1>
+        <p>
+           Svarga Dimsum lahir dari dapur rumahan dengan satu misi: bikin orang bahagia lewat makanan sederhana yang rasanya luar biasa.
+          Dibuat dari bahan pilihan, tanpa pengawet, dan dimasak dengan penuh cinta — setiap loyang dimsum punya cerita, dan kami ingin kamu jadi bagian dari cerita itu.
+        </p>
+
+        <div class="stats-container scroll-reveal">
+          <div class="stat-item">
+            <div class="avatars">
+              <img src="https://i.pravatar.cc/40?img=1" alt="Customer 1">
+              <img src="https://i.pravatar.cc/40?img=2" alt="Customer 2">
+              <img src="https://i.pravatar.cc/40?img=3" alt="Customer 3">
+            </div>
+            <div class="stat-text">1200+ Pelanggan Puas</div>
+          </div>
+          
+          <div class="stat-item">
+            <div class="star-rating">
+              <span class="stars">★★★★★</span>
+              <div class="rating-text">4.8 Rating Positif</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Bagian baru: Section Cara Order -->
+<section class="cara-order-section scroll-reveal" id="CaraOrder">
+  <div class="container-about">
+    <div class="about-text scroll-reveal reveal-left">
+      <h4>Panduan Pemesanan</h4>
+      <h1>Cara Order Dimsum di Svarga</h1>
+      <p>
+        Kamu bisa pesan dimsum favoritmu hanya dengan beberapa langkah mudah:
+      </p>
+      <ul class="order-steps">
+        <li><i class="fas fa-clipboard-list"></i> Pilih menu yang kamu suka.</li>
+        <li><i class="fas fa-box-open"></i> Tentukan paket dan level pedas.</li>
+        <li><i class="fab fa-whatsapp"></i> Klik "Beli Sekarang" untuk langsung pesan lewat WhatsApp.</li>
+        <li><i class="fas fa-motorcycle"></i> Tunggu pesananmu dikirim ke rumahmu!</li>
+      </ul>
+      <button onclick="document.getElementById('menu-dimsum').scrollIntoView({ behavior: 'smooth' });">
+        Lihat Menu
+      </button>
+    </div>
+
+    <div class="about-images scroll-reveal reveal-right">
+      <img src="img/order-guide.png" alt="Ilustrasi Pemesanan" style="max-width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+    </div>
+  </div>
+</section>
+
+<!-- Menu -->
+<!-- SECTION: Menu Dimsum Favorit -->
+<section id="menu-dimsum">
+  <h2>Menu Dimsum Favorit</h2>
+  <p class="subtext">Kombinasi rasa klasik dan modern yang cocok untuk semua lidah.</p>
+
+  <div class="menu-container">
+    <div class="menu-card">
+      <img src="img/Dimsum.jpeg" alt="Dimsum Original">
+      <div class="menu-info">
+        <h3>Dimsum Original</h3>
+        <p>Dimsum kukus klasik dengan rasa autentik.</p>
+        <div class="rating">★★★★★</div>
+        <div class="menu-price">Rp 25.000</div>
+        <button class="buy-btn" onclick="openPopup('Dimsum Original')">Beli Sekarang</button>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <img src="img/DimsumMentai.jpeg" alt="Dimsum Mentai">
+      <div class="menu-info">
+        <h3>Dimsum Mentai</h3>
+        <p>Saus mentai creamy menggoda selera.</p>
+        <div class="rating">★★★★★</div>
+        <div class="menu-price">Rp 30.000</div>
+        <button class="buy-btn" onclick="openPopup('Dimsum Mentai')">Beli Sekarang</button>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <img src="img/dimsum_ori.png" alt="Dumpling Ayam">
+      <div class="menu-info">
+        <h3>Dumpling Ayam</h3>
+        <p>Isian ayam juicy dan gurih dalam balutan kulit tipis.</p>
+        <div class="rating">★★★★★</div>
+        <div class="menu-price">Rp 30.000</div>
+        <button class="buy-btn" onclick="openPopup('Dumpling Ayam')">Beli Sekarang</button>
+      </div>
+    </div>
+
+        <div class="menu-card">
+      <img src="img/Dumpling.png" alt="Dumpling Ayam">
+      <div class="menu-info">
+        <h3>Dumpling Ayam</h3>
+        <p>Isian ayam juicy dan gurih dalam balutan kulit tipis.</p>
+        <div class="rating">★★★★★</div>
+        <div class="menu-price">Rp 30.000</div>
+        <button class="buy-btn" onclick="openPopup('Dumpling Ayam')">Beli Sekarang</button>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- Popup -->
+<div class="popup-order" id="popupOrder">
+  <div class="popup-content">
+    <button class="close-btn" onclick="closePopup()" aria-label="Tutup Popup">&times;</button>
+    <div class="popup-header">
+      <h4 id="popupTitle">Pesan Menu</h4>
+      <p class="popup-subtext">Isi formulir di bawah untuk melanjutkan pemesanan.</p>
+    </div>
+    <div class="popup-body">
+      <label for="jumlah">Jumlah Isi</label>
+      <select id="jumlah" required>
+        <option value="4">Isi 4</option>
+        <option value="10">Isi 10</option>
+      </select>
+
+      <label for="level">Level Pedas</label>
+      <select id="level" required>
+        <option value="Tidak Pedas">Tidak Pedas</option>
+        <option value="Pedas">Pedas</option>
+      </select>
+
+      <button class="submit-btn" onclick="kirimPesanWA()">Kirim ke WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+ <!-- Promo Section -->
+  <section class="game">
+  <div class="container">
+        <div class="game-area">
+      <h2>Memory Game</h2>
+      <div class="timer" id="timer">Waktu: 30</div>
+      <div class="lives" id="lives">❤️❤️❤️</div>
+      <div class="game-grid" id="game-grid"></div>
+      <button id="playButton" style="padding: 12px 24px; font-size: 18px;">🎮 Mulai Game</button>
+
+      <div class="result" id="result"></div>
+      <div class="leaderboard" id="leaderboard">🏆 High Score Hari Ini: <span id="highscore">0</span></div>
+    </div>
+
+  </div>
+
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup()">&times;</button>
+      <h3>🎊 Selamat!</h3>
+      <div class="voucher" id="voucherCode">Kode Voucher: </div>
+      <button onclick="shareWhatsApp()">Bagikan ke WhatsApp</button>
+    </div>
+  </div>
+
+    <button id="adminButton" style="display:none; position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #4E0100; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;">🔐 Validasi Admin</button>
+
+  <div class="popup"  id="adminPopup">
+    <div class="popup-content">
+         <button class="popup-close" onclick="document.getElementById('adminPopup').style.display='none'">&times;</button>
+    <h3>🔐 Validasi Kode Voucher</h3>
+    <label>Tanggal:</label>
+    <input type="date" id="checkDate">
+    <label>Kode:</label>
+    <input type="text" id="userCode" placeholder="Masukkan kode dari user">
+    <button onclick="validateCode()">Cek Validasi</button>
+    <p id="validationResult" style="margin-top: 1rem; font-weight: bold;"></p>
+
+    </div>
+  </div>
+    <audio id="win-sound" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_e5e30500b5.mp3?filename=correct-2-46134.mp3"></audio>
+  <audio id="fail-sound" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_3e3be3c646.mp3?filename=fail-144746.mp3"></audio>
+  </section>
+
+  <!-- Testimoni -->
+  <section class="testimoni" id="Testi">
+    <h2>Testimoni Pelanggan</h2>
+    <div class="testimoni-container">
+      <!-- Tombol desktop -->
+      <button class="btn-slide left" onclick="slideLeft()">&#10094;</button>
+
+      <div class="testimoni-wrapper" id="slider">
+        <div class="testimoni-card">
+          <h4>@Ibu Rina</h4>
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p>"Dimsumnya enak banget! Anak-anak juga suka."</p>
+        </div>
+        <div class="testimoni-card active">
+          <h4>@Dimas A.</h4>
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p>"Dimsum kejunya juara! Lumer banget, wajib coba!"</p>
+        </div>
+        <div class="testimoni-card">
+          <h4>@Sari L.</h4>
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p>"Rasa autentik seperti di resto Tiongkok. Porsinya pas!"</p>
+        </div>
+      </div>
+
+      <!-- Tombol mobile -->
+      <div class="btn-slide-mobile">
+        <button class="btn-slide" onclick="slideLeft()"><i class="fas fa-chevron-left"></i></button>
+        <button class="btn-slide" onclick="slideRight()"><i class="fas fa-chevron-right"></i></button>
+      </div>
+
+      <button class="btn-slide right" onclick="slideRight()">&#10095;</button>
+    </div>
+  </section>
+
+  <footer class="footer-section" id="Contak">
+    <div class="footer-container">
+      <div class="footer-content">
+        <!-- Kolom 1: Brand dan Sosial Media -->
+        <div class="footer-brand">
+          <h2>SVARGA</h2>
+          <p>Dimsum premium dengan cita rasa autentik yang tak terlupakan</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/svarga.foodies/"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/6285213963005"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+          </div>
+          <div class="available-on">
+            <p>Tersedia juga di:</p>
+            <img src="img/gofood.png" alt="GoFood" height="30">
+            <img src="img/shopeefood.png" alt="ShopeeFood" height="30">
+            <img src="img/grabfood.png" alt="GrabFood" height="30">
+          </div>
+
+          <div class="available-on">
+             <p>Didukung oleh:</p>
+             <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_Telkom_Indonesia.svg" alt="Sponsor" height="35">
+          </div>
+        </div>
+
+        
+
+        <!-- Kolom 2: Kontak -->
+        <div class="footer-contact">
+          <h4>Kontak</h4>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+62 852-1396-3005</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>hello@svargadimsum.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Jl. Raya Abdul Gani No.2 Blok B, Jatimulya, Depok</span>
+          </div>
+        </div>
+
+        <!-- Kolom 3: Google Maps -->
+        <div class="footer-map">
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.593881200354!2d106.833801474117!3d-6.446157363031236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69eb007ad89db7%3A0x6e22c675cd8ffd98!2sSvarga%20Foodies!5e0!3m2!1sid!2sid!4v1750420769937!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Svarga Dimsum. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/game.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/animate.js"></script>
+
+
+  <!-- Testi Script -->
+  <script>
+    const slider = document.getElementById('slider');
+
+    function slideLeft() {
+      slider.prepend(slider.lastElementChild);
+      updateActiveCard();
+    }
+
+    function slideRight() {
+      slider.appendChild(slider.firstElementChild);
+      updateActiveCard();
+    }
+
+    function updateActiveCard() {
+      const cards = slider.querySelectorAll('.testimoni-card');
+      cards.forEach(card => card.classList.remove('active'));
+
+      if (window.innerWidth <= 768) {
+        cards[0].classList.add('active');
+      } else {
+        if (cards[1]) cards[1].classList.add('active');
+      }
+    }
+
+    window.addEventListener('resize', updateActiveCard);
+    updateActiveCard();
+
+
+     // Scroll Animation Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all scroll-reveal elements
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+  </script>
+    
+</body>
+</html>
