@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</head>
+<style>
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+       background: linear-gradient(to left, #190F0F, #2c1414);
+      color: #fff;
+    }
+/* === PRELOADER DENGAN PARALLAX & SVG === */
+.preloader {
+  position: fixed;
+  z-index: 9999;
+  background: radial-gradient(circle at center, #1b0000, #000);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeOut 1s ease 5.5s forwards;
+  overflow: hidden;
+}
+
+.logo-glow {
+  font-size: 4rem;
+  color: #ffbb6a;
+  text-shadow: 0 0 15px #a36838, 0 0 30px #a36838;
+  opacity: 0;
+  animation: logoIn 1.5s ease-out forwards;
+}
+
+@keyframes logoIn {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.streak {
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(to right, transparent, #ff944d, transparent);
+  animation: streakMove 2s ease-in-out 1.5s forwards;
+}
+
+@keyframes streakMove {
+  0% { width: 0; left: 0; opacity: 0; }
+  50% { width: 70%; opacity: 1; }
+  100% { width: 0; left: 100%; opacity: 0; }
+}
+
+.preloader-text {
+  font-size: 2rem;
+  letter-spacing: 6px;
+  color: #fff;
+  opacity: 0;
+  margin-top: 1rem;
+  animation: fadeText 2s ease-out 3.2s forwards;
+}
+
+@keyframes fadeText {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .preloader-text{
+    font-size: 1.7em;
+  }
+}
+       header {
+      background-color: #ffffff;
+      color: #000;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: calc(100% - 40px);
+      max-width: 1100px;
+      animation: fadeInDown 0.8s ease forwards;
+    }
+
+  
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #000;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav ul li a { 
+      color: #000;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #a25515;
+    }
+
+    .toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.toggle span {
+  width: 25px;
+  height: 3px;
+  background: #000;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+  @media (max-width: 768px) {
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 10px;
+  }
+
+  nav ul li a:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #a25515;
+  }
+}
+
+
+    .toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.toggle span {
+  width: 25px;
+  height: 3px;
+  background: #000;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Responsive Style */
+@media (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    border-radius:20px;
+    display: none;
+    padding: 1rem 2rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  nav.show {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+ .toggle {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 15px;
+  margin: -15px;
+  z-index: 2000;
+}
+
+}
+
+
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 4rem;
+  gap: 3rem;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to right, #190F0F, #2c1414);
+}
+
+    .shape-right-bg {
+      position: absolute;
+      right: -100px;
+      top: -50px;
+      width: 450px;
+      height: 110%;
+      background: radial-gradient(circle at 30% 30%, #b47c4f 20%, transparent 70%);
+      z-index: 0;
+      border-radius: 50%;
+    }
+
+    .shape-left-thumb {
+      position: absolute;
+      left: -80px;
+      bottom: 20px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle at center, #a36838 50%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+      opacity: 0.25;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .product-label {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+   font-family: 'Titan One', cursive;
+  
+  font-size: 5rem;
+      color: #ffffff;
+      position: absolute;
+      right: -665px;
+      top: 10%;
+      transform: translateY(-50%);
+      bottom: 50%;
+      line-height: 4rem;
+      margin-right: 15px;
+    }
+
+    .hero-content h1 {
+    font-family: 'Titan One', cursive;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .hero-content p {
+      max-width: 500px;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: #cccccc;
+      font-family: 'Chivo', sans-serif;
+    }
+
+    .btn {
+      padding: 0.75rem 2rem;
+      background-color: #a36838;
+      border: none;
+      border-radius: 25px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #a25515;
+    }
+
+    .btn-rspnsv {
+      padding: 0.75rem 2rem;
+      background-color: #a36838;
+      border: none;
+      border-radius: 25px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s;
+      display: none;
+    }
+
+    .btn-rspnsv:hover {
+      background-color: #a25515;
+    }
+
+    .hero-image-container {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      margin: auto;
+      z-index: 2;
+      min-height: 350px;
+    }
+
+    .hero-image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 20px;
+      animation: slideFade 1s ease forwards;
+    }
+
+    @keyframes slideFade {
+      0% {
+        opacity: 0;
+        transform: translateX(100px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+      @keyframes fadeInDown {
+      from { opacity: 0; transform: translate(-50%, -30px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+
+    .preview-thumbs {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .preview-thumbs img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 16px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .preview-thumbs img:hover {
+      transform: scale(1.05);
+    }
+
+    .preview-thumbs img.active {
+      border-color: white;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 6rem 1.5rem 3rem;
+      }
+      .product-name {
+        right: 200px;
+        top: 750px;
+        font-size: 2rem;
+        display: inline-block;
+        transform: rotate(-90deg);
+        display: none;
+      }
+    }
+
+    /* Tambahan untuk animasi rotasi gambar */
+.hero-image-container img {
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  animation: fadeRotate 0.8s ease;
+  will-change: transform;
+}
+
+@keyframes fadeRotate {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) rotate(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Pastikan gambar tidak berputar saat diganti cepat */
+.hero-image-container img.change-out {
+  opacity: 0;
+  transform: scale(0.95) rotate(10deg);
+}
+
+
+
+/* Responsive improvement */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 1.8em;
+  }
+
+  .hero-content p {
+    font-size: 1em;
+    margin-top: -10px;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 1rem;
+    display: none;
+  }
+
+  .btn-rspnsv {
+    width: 100%;
+    font-size: 1rem;
+    display: none;
+    display: block;
+  }
+
+  .preview-thumbs {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .preview-thumbs img {
+    width: 90px;
+    height: 90px;
+    margin-top: -25px;
+  }
+
+  .hero-image-container {
+    max-width: 300px;
+    min-height: auto;
+    margin-top: -40px;
+  }
+}
+
+@media (min-width: 1440px) {
+  header {
+    top: 30px;
+    padding: 1rem 3rem;
+    max-width: 1280px;
+    font-size: 1.1rem;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  nav ul {
+    gap: 2rem;
+  }
+
+   .hero {
+    padding: 8rem 10rem;
+    gap: 6rem;
+  }
+
+  .hero-content h1 {
+    font-size: 4.2rem;
+    line-height: 1.2;
+  }
+
+  .hero-content p {
+    font-size: 1.4rem;
+    max-width: 600px;
+  }
+
+  .btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+
+  .preview-thumbs img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .hero-image-container {
+    max-width: 420px;
+  }
+
+  .product-name {
+    font-size: 5.5rem;
+    right: -900px;
+    top: 12%;
+    line-height: 5rem;
+  }
+
+  .shape-right-bg {
+    width: 550px;
+    right: -150px;
+  }
+
+  .shape-left-thumb {
+    width: 250px;
+    height: 250px;
+  }
+
+  .about-section {
+    padding: 120px 0;
+  }
+
+  .container-about {
+    max-width: 1300px;
+    gap: 100px;
+  }
+
+  .about-text h1 {
+    font-size: 3rem;
+  }
+
+  .about-text p {
+    font-size: 1.2rem;
+    max-width: 600px;
+  }
+
+  .photo-stack {
+    width: 450px;
+    height: 550px;
+  }
+
+  .floating-badge {
+    font-size: 16px;
+    padding: 16px 24px;
+  }
+
+  .stat-text, .rating-text {
+    font-size: 18px;
+  }
+
+  .stat-item .avatars img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+</style>
+<body>
+    <!-- (body content remains unchanged) -->
+<div class="preloader">
+  <audio id="intro-audio" autoplay>
+    <source src="sound/3dsound.mp3" type="audio/mpeg">
+  </audio>
+  <div class="logo-glow"><i class="fas fa-bowl-rice"></i></div>
+  <div class="streak"></div>
+  <div class="preloader-text">SVARGA DIMSUM</div>
+</div>
+
+ <header>
+  <div class="logo">SVARGA</div> <!-- Harus di luar nav -->
+
+  <div class="toggle" onclick="document.querySelector('nav').classList.toggle('show')">
+  <span></span><span></span><span></span>
+</div>
+
+
+  <nav>
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#Tentang">Tentang Kami</a></li>
+      <li><a href="#Projects">Menu</a></li>
+      <li><a href="#Testi">Testimoni</a></li>
+      <li><a href="#Contak">Contak</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <section class="hero" id="home">
+    <div class="shape-right-bg"></div>
+    <div class="shape-left-thumb"></div>
+
+    <div class="hero-content">
+      <h1>Dimsum Favoritmu</h1>
+      <p>Rasakan kelezatan dimsum pilihan dengan bahan terbaik dan rasa yang otentik. Setiap gigitan adalah cerita kenikmatan yang tak terlupakan.</p>
+      <div class="product-label" id="product-name">Dimsum Ori</div>
+      <button class="btn"  onclick="document.getElementById('menu-dimsum').scrollIntoView({ behavior: 'smooth' });">
+        Yuk, Cicipin Sekarang!</button>
+      <div class="preview-thumbs">
+        <img src="img/dimsum_ori.png" alt="Dimsum 1" onclick="manualChangeImage(this, 0)" class="active">
+        <img src="img/Dumpling.png" alt="Dimsum 2" onclick="manualChangeImage(this, 1)">
+        <img src="img/dimsum_mentai.png" alt="Dimsum 3" onclick="manualChangeImage(this, 2)">
+      </div>
+    </div>
+
+    <div class="hero-image-container">
+      
+      <div class="image-loader" id="imageLoader"></div>
+      <img id="main-image" src="img/dimsum_ori.png" alt="Main Dimsum">
+    </div>
+    <button class="btn-rspnsv"  onclick="document.getElementById('menu-dimsum').scrollIntoView({ behavior: 'smooth' });">
+      Yuk, Cicipin Sekarang!
+    </button>
+  </section>
+
+<script>
+  // Saat semua konten sudah dimuat
+  window.addEventListener('load', function () {
+    const preloader = document.querySelector('.preloader');
+    
+    // Tambahkan class 'hide' agar preloader fade out
+    preloader.style.transition = 'opacity 1s ease';
+    preloader.style.opacity = 0;
+
+    // Hapus preloader dari tampilan setelah animasi selesai
+    setTimeout(() => {
+      preloader.style.display = 'none';
+    }, 1000); // sesuai durasi fade-out
+  });
+
+  // Aktifkan audio di iOS (user harus klik dulu)
+  document.addEventListener('DOMContentLoaded', function () {
+    const audio = document.getElementById('intro-audio');
+    const enableAudio = () => {
+      audio.play().catch(() => {});
+      document.removeEventListener('click', enableAudio);
+    };
+    document.addEventListener('click', enableAudio);
+  });
+
+  // Fungsi ganti gambar utama dimsum
+  function manualChangeImage(el, index) {
+    const mainImage = document.getElementById('main-image');
+    const thumbs = document.querySelectorAll('.preview-thumbs img');
+
+    // Ganti class active
+    thumbs.forEach(img => img.classList.remove('active'));
+    el.classList.add('active');
+
+    // Efek rotasi keluar
+    mainImage.classList.add('change-out');
+
+    // Setelah efek keluar selesai, ganti gambar
+    setTimeout(() => {
+      mainImage.src = el.src;
+      mainImage.classList.remove('change-out');
+    }, 300); // waktu animasi keluar
+  }
+</script>
+
+  
+</body>
+</html>
