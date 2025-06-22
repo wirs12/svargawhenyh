@@ -2,11 +2,12 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
       font-family: 'Poppins', sans-serif;
     }
 
     body {
-       background: linear-gradient(to left, #190F0F, #2c1414);
+       background: -webkit-linear-gradient(to left, #190F0F, #2c1414);
       color: #fff;
     }
 /* === PRELOADER DENGAN PARALLAX & SVG === */
@@ -42,7 +43,7 @@
   top: 50%;
   height: 2px;
   width: 0%;
-  background: linear-gradient(to right, transparent, #ff944d, transparent);
+  background: -webkit-linear-gradient(to right, transparent, #ff944d, transparent);
   animation: streakMove 2s ease-in-out 1.5s forwards;
 }
 
@@ -75,7 +76,7 @@
       background-color: #ffffff;
       color: #000;
       position: fixed;
-      top: 20px;
+      top: env(safe-area-inset-top, 20px);
       left: 50%;
       transform: translateX(-50%);
       padding: 0.75rem 2rem;
@@ -218,7 +219,7 @@
   gap: 3rem;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(to right, #190F0F, #2c1414);
+  background: -webkit-linear-gradient(to right, #190F0F, #2c1414);
 }
 
     .shape-right-bg {
@@ -566,7 +567,7 @@
   padding: 100px 0;
   position: relative;
   overflow: hidden;
-    background: linear-gradient(to left, #190F0F, #2c1414);
+    background: -webkit-linear-gradient(to left, #190F0F, #2c1414);
 }
     .about-section::before {
       content: '';
@@ -613,7 +614,7 @@
       width: 100%;
       height: 100%;
       border-radius: 25px;
-      background: linear-gradient(45deg, #a36838, #b47c4f);
+      background: -webkit-linear-gradient(45deg, #a36838, #b47c4f);
       opacity: 0.3;
     }
 
@@ -649,9 +650,9 @@
 
     .floating-badge {
       position: absolute;
-      top: 20px;
+      top: env(safe-area-inset-top, 20px);
       right: -20px;
-      background: linear-gradient(135deg, #a36838, #ff944d);
+      background: -webkit-linear-gradient(135deg, #a36838, #ff944d);
       color: white;
       padding: 15px 20px;
       border-radius: 50px;
@@ -686,10 +687,13 @@
       margin-bottom: 30px;
       line-height: 1.3;
       color: #ffffff;
-      background: linear-gradient(135deg, #ffffff, #e0e0e0);
-      background-clip: text;
+      background: -webkit-linear-gradient(135deg, #ffffff, #e0e0e0);
       -webkit-background-clip: text;
+  background-clip: text;
+      -webkit--webkit-background-clip: text;
+  background-clip: text;
       -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
     }
 
     .about-text p {
@@ -857,7 +861,7 @@
     /* cara order */
      .cara-order-section {
     padding: 100px 20px;
-    background: linear-gradient(to left, #190F0F, #2c1414);
+    background: -webkit-linear-gradient(to left, #190F0F, #2c1414);
     color: white;
   }
 
@@ -936,7 +940,7 @@
     /* Menu */
   #menu-dimsum {
     padding: 60px 20px;
-     background: linear-gradient(to left, #190F0F, #2c1414);
+     background: -webkit-linear-gradient(to left, #190F0F, #2c1414);
     color: #fff;
     font-family: sans-serif;
   }
@@ -1131,7 +1135,7 @@
 
 /* game Section */
 .game {
-    background: linear-gradient(to left, #190F0F, #2c1414);
+    background: -webkit-linear-gradient(to left, #190F0F, #2c1414);
   padding: 20px;
   display: flex;
   align-items: center;
@@ -1179,7 +1183,7 @@
     .card {
       width: 70px;
       height: 70px;
-      background: linear-gradient(to bottom, #fff, #f9f9f9);
+      background: -webkit-linear-gradient(to bottom, #fff, #f9f9f9);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1218,7 +1222,7 @@
       text-align: center;
     }
     .leaderboard {
-      margin-top: 20px;
+      margin-top: env(safe-area-inset-top, 20px);
       font-size: 14px;
       color: #4E0100;
       text-align: center;
@@ -1336,7 +1340,7 @@
 
   .result, .leaderboard {
     font-size: 1rem;
-    margin-top: 20px;
+    margin-top: env(safe-area-inset-top, 20px);
   }
 
   .popup-content {
@@ -1371,7 +1375,7 @@
 
     .play-button {
       display: inline-block;
-      margin-top: 20px;
+      margin-top: env(safe-area-inset-top, 20px);
       padding: 10px 20px;
       background-color: #B00000;
       color: white;
@@ -1389,7 +1393,7 @@
 
     /* Testi */
     .testimoni {
-       background: linear-gradient(to left, #190F0F, #2c1414);
+       background: -webkit-linear-gradient(to left, #190F0F, #2c1414);
       text-align: center;
       margin-bottom: 20px;
     }
@@ -1399,7 +1403,7 @@
       margin-bottom: 40px;
       color: #ff914d;
       margin-bottom: -5px;
-      margin-top: 20px;
+      margin-top: env(safe-area-inset-top, 20px);
     }
 
     .testimoni-container {
@@ -1533,7 +1537,7 @@
 
       /* footer */
     .footer-section {
-      background: linear-gradient(135deg, #0f0707 0%, #1a0f0f 100%);
+      background: -webkit-linear-gradient(135deg, #0f0707 0%, #1a0f0f 100%);
       padding: 60px 0 20px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
@@ -1711,3 +1715,4 @@
   }
 }
 
+ 
